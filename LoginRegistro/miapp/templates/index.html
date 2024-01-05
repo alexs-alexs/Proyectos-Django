@@ -1,0 +1,33 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
+<body>
+    <ul>
+        <li> <a href="index.html"> Inicio </a> </li>
+        <li> <a href="listas.html"> Contactos</a>  </li>
+        <li> <a href="tablas.html"> Informacion</a> </li>
+        <li> <a href="http://127.0.0.1:8000/salir"> Salir</a> </li>
+    </ul>
+
+
+    <div>
+        <img src="{% static 'img/tienda.png' %}" width="80">
+    </div>
+
+    {% if messages %}
+    {% for i in messages %}
+     <p >{{i}}</p>
+    {%endfor%}
+    {%endif%}
+
+    <script src="{% static 'js/proceso.js' %}"></script>
+</body>
+</html>
+
+
