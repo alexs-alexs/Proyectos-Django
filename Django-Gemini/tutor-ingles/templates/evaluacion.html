@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evaluación</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        #nombreUsuario, #edadUsuario {
+            font-size: 20px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+        #resultadoEvaluacion {
+            font-size: 18px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 20px;
+        }
+        #logoutButton {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #dc3545;
+            color: white;
+            border: none;
+            border-radius: 5px;
+        }
+        #logoutButton:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Evaluación del Nivel de Inglés</h1>
+    <h2 id="nombreUsuario">Nombre: {{ nombre_usuario }}</h2>
+    <p id="edadUsuario">Edad: {{ edad_usuario }}</p>
+    <div id="resultadoEvaluacion"></div>
+    <button id="logoutButton">Cerrar sesión</button>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const evaluacion = sessionStorage.getItem("evaluacion");
+            const resultadoEvaluacionDiv = document.querySelector("#resultadoEvaluacion");
+
+            if (evaluacion) {
+                resultadoEvaluacionDiv.textContent = evaluacion;
+            } else {
+                resultadoEvaluacionDiv.textContent = "No se pudo obtener la evaluación.";
+            }
+
+            // Obtener la URL de cierre de sesión desde Django y asignarla al botón
+            const logoutButton = document.getElementById('logoutButton');
+            logoutButton.onclick = function() {
+                window.location.href = "{% url 'salir' %}";
+            };
+        });
+    </script>
+</body>
+</html>

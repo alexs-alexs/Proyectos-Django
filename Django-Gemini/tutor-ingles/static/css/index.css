@@ -1,0 +1,35 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+}
+#content {
+    text-align: center;
+}
+#botonConsulta {
+    padding: 20px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    margin-top: 20px; /* Añadir un margen superior para separar el botón del texto */
+}
+#botonConsulta:hover {
+    background-color: #0056b3;
+}
+img {
+    max-width: 100%;
+    height: auto;
+    margin-bottom: 20px; /* Añadir un margen inferior para separar la imagen del título */
+}
+h1 {
+    margin: 0;
+}
+p {
+    margin: 10px 0 0 0;
+}

@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generative AI Prompt</title>
+    <link rel="stylesheet" href="{% static 'css/index.css' %}">
+</head>
+<body>
+    <div id="content">
+        <img src="{% static 'img/buho.png' %}" alt="Descripción de la imagen" width="300">
+        <h1>Bienvenido</h1>
+        <p>Genera un test que evaluará tu nivel de inglés, "puede ser divertido"</p>
+        <br>
+        <button id="botonConsulta">Generar Test</button>
+    </div>
+    <script src="{% static 'js/script.js' %}"></script>
+    <script>
+        document.querySelector("#botonConsulta").addEventListener("click", function() {
+            window.location.assign("{% url 'preguntas' %}");
+        });
+    </script>
+</body>
+</html>
